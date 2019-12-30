@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Calculator</title>
+</head>
+<body>
+    <input type="number" placeholder="Type number" id="myInput">
+    <button type="button" onclick="operation('+');">+</button>
+    <button type="button" onclick="operation('-');">-</button>
+    <button type="button" onclick="operation('*');">*</button>
+    <button type="button" onclick="operation('/');">/</button>
+    <button type="button" onclick="operation('=');">=</button>
+    <script>
+      var   add = null , sub = null , prod = null , div = null
+        function operation(operator){
+            switch(operator){
+                case '+':
+                    add = parseInt (document.getElementById("myInput").value)
+                    document.getElementById('myInput').value = '';
+                    sub = null , prod = null , div = null ;
+                    break;
+                case '-':
+                    sub = parseInt (document.getElementById("myInput").value)
+                    document.getElementById('myInput').value = '';
+                    add = null , prod = null , div = null ;
+                    break;
+                case '*':
+                    prod = parseInt (document.getElementById("myInput").value)
+                    document.getElementById('myInput').value = '';
+                    add = null , sub = null ,div = null ;
+                    break;
+                case '/':
+                    div = parseInt (document.getElementById("myInput").value)
+                    document.getElementById('myInput').value = '';
+                    add = null , sub = null , prod = null ;
+                    break;
+                case '=':
+                    let second_num = parseInt (document.getElementById("myInput").value) ; 
+                    let result = 0 ;
+                    document.getElementById('myInput').value = ''
+                    if(add!=null){
+                        result = add + second_num;
+                    }
+                    else if(sub!=null){
+                        result = sub - second_num;
+                    }
+                    else if(prod!=null){
+                        result = prod * second_num;
+                    }
+                    else if(div!=null){
+                        result = div / second_num;
+                    }
+                    alert(result)
+                    add = null , sub = null , prod = null , div = null ;
+
+            }
+               
+
+           } 
+    </script>
+</body>
+</html>
